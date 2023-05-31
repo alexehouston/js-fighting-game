@@ -37,7 +37,7 @@ a {
 }
 
 .playerHealth {
-    background-color: #dc2626;
+    background-color: #f472b6;
     height: 20px;
     width: 100%;
     border-top-left-radius: 25px;
@@ -56,8 +56,8 @@ a {
 }
 
 #timer {
-    background-color: black;
-    width: 90px;
+    background-color: #272361;
+    width: 80px;
     height: 50px;
     flex-shrink: 0;
     display: flex;
@@ -79,7 +79,7 @@ a {
 }
 
 .enemyHealth {
-    background-color: #dc2626;
+    background-color: #f472b6;
     height: 20px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
