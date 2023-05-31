@@ -14,15 +14,23 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 // win functionality
 function determineWinner({ player, enemy, timerId }) {
   clearTimeout(timerId);
-  document.querySelector("#displayText").style.display = "flex";
+  const displayTextElement = document.querySelector("#displayText");
+  const refreshLinkElement = document.querySelector("#refreshLink");
+
+  displayTextElement.style.display = "flex";
+  refreshLinkElement.innerHTML = "<a href='#'>Rematch</a>";
 
   if (player.health === enemy.health) {
-    document.querySelector("#displayText").innerHTML = "Tie";
+    displayTextElement.innerHTML = "Tie";
   } else if (player.health > enemy.health) {
-    document.querySelector("#displayText").innerHTML = `Player 1 Wins`;
+    displayTextElement.innerHTML = `Player 1 Wins`;
   } else if (enemy.health > player.health) {
-    document.querySelector("#displayText").innerHTML = `Player 2 Wins`;
+    displayTextElement.innerHTML = `Player 2 Wins`;
   }
+
+  refreshLinkElement.addEventListener("click", function () {
+    location.reload();
+  });
 }
 
 // timer functionality

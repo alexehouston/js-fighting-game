@@ -9,7 +9,7 @@ body {
 }
 
 a {
-    z-index: 999;
+    color: white;
 }
 
 .main {
@@ -96,10 +96,14 @@ a {
     border-bottom-right-radius: 25px;
 }
 
-#displayText {
+#displayText, #refreshLink {
     font-family: 'Press Start 2P', cursive;
     position: absolute;
     color: white;
+    text-align: center;
+}
+
+#displayText {
     display: none;
     align-items: center;
     justify-content: center;
@@ -107,5 +111,10 @@ a {
     right: 0;
     bottom: 0;
     left: 0;
-    text-align: center;
+}
+
+#refreshLink {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 15px);
 }
