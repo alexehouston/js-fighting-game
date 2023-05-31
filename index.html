@@ -1,140 +1,27 @@
 <head>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-
-    * {
-      box-sizing: border-box;
-    }
-  </style>
+  <link rel="stylesheet" href="index.css" />
 </head>
 
-<body
-  style="
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    margin: 0 auto;
-  "
->
-  <div style="position: relative; display: inline-block">
-    <div
-      style="
-        position: absolute;
-        display: flex;
-        width: 100%;
-        align-items: center;
-        padding: 20px;
-      "
-    >
-      <!-- player health -->
-      <div
-        style="
-          position: relative;
-          width: 100%;
-          display: flex;
-          justify-content: flex-end;
-          border: 3px solid white;
-          border-right: none;
-          border-top-left-radius: 25px;
-          border-bottom-left-radius: 25px;
-        "
-      >
-        <div
-          style="
-            background-color: #dc2626;
-            height: 20px;
-            width: 100%;
-            border-top-left-radius: 25px;
-            border-bottom-left-radius: 25px;
-          "
-        ></div>
-        <div
-          id="playerHealth"
-          style="
-            position: absolute;
-            background-color: #818cf8;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            border-top-left-radius: 25px;
-            border-bottom-left-radius: 25px;
-          "
-        ></div>
+<body>
+  <div class="main">
+    <!-- game over text -->
+    <div class="health-container">
+      <!-- player 1 health -->
+      <div class="playerOne">
+        <div class="playerHealth"></div>
+        <div id="playerHealth"></div>
       </div>
 
       <!-- timer -->
-      <div
-        id="timer"
-        style="
-          background-color: black;
-          width: 80px;
-          height: 40px;
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          border: 3px solid white;
-          border-radius: 5px;
-          font-family: 'Press Start 2P', cursive;
-        "
-      >
-        10
-      </div>
+      <div id="timer">10</div>
 
-      <!-- enemy health -->
-      <div
-        style="
-          position: relative;
-          width: 100%;
-          border: 3px solid white;
-          border-left: none;
-          border-top-right-radius: 25px;
-          border-bottom-right-radius: 25px;
-        "
-      >
-        <div
-          style="
-            background-color: #dc2626;
-            height: 20px;
-            border-top-right-radius: 25px;
-            border-bottom-right-radius: 25px;
-          "
-        ></div>
-        <div
-          id="enemyHealth"
-          style="
-            position: absolute;
-            background-color: #818cf8;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            border-top-right-radius: 25px;
-            border-bottom-right-radius: 25px;
-          "
-        ></div>
+      <!-- player 2 health -->
+      <div class="playerTwo">
+        <div class="enemyHealth"></div>
+        <div id="enemyHealth"></div>
       </div>
-
-      <div></div>
     </div>
-    <div
-      id="displayText"
-      style="
-        position: absolute;
-        color: white;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      "
-    >
-      Tie
-    </div>
+    <div id="displayText"></div>
     <canvas></canvas>
   </div>
 

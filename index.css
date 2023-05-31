@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+}
+
+a {
+    z-index: 999;
+}
+
+.main {
+    position: relative;
+    display: inline-block;
+}
+
+.health-container {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 40px;
+}
+
+.playerOne {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border: 3px solid white;
+    border-right: none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.playerHealth {
+    background-color: #dc2626;
+    height: 20px;
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+#playerHealth {
+    position: absolute;
+    background-color: #818cf8;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+#timer {
+    background-color: black;
+    width: 90px;
+    height: 50px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 3px solid white;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.playerTwo {
+    position: relative;
+    width: 100%;
+    border: 3px solid white;
+    border-left: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.enemyHealth {
+    background-color: #dc2626;
+    height: 20px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+#enemyHealth {
+    position: absolute;
+    background-color: #818cf8;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+#displayText {
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
