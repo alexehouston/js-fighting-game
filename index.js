@@ -1,8 +1,11 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
-canvas.width = 1024;
-canvas.height = 576;
+// canvas.width = 1024;
+// canvas.height = 576;
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -18,7 +21,8 @@ const background = new Sprite({
     x: 0,
     y: 0,
   },
-  imageSrc: "./img/background.png",
+  imageSrc: "./img/background.jpg",
+  scale: 1.69,
 });
 
 // const shop = new Sprite({
@@ -34,7 +38,7 @@ const background = new Sprite({
 // player 1
 const player = new Fighter({
   position: {
-    x: 150,
+    x: 350,
     y: 0,
   },
   velocity: {
@@ -46,11 +50,11 @@ const player = new Fighter({
     y: 0,
   },
   imageSrc: "./img/samuraiMack/Idle.png",
-  scale: 2.5,
+  scale: 3,
   framesMax: 8,
   offset: {
     x: 215,
-    y: 155,
+    y: 151,
   },
   sprites: {
     idle: {
@@ -84,10 +88,10 @@ const player = new Fighter({
   },
   attackBox: {
     offset: {
-      x: 100,
-      y: 50,
+      x: 135,
+      y: 100,
     },
-    width: 160,
+    width: 170,
     height: 50,
   },
 });
@@ -95,7 +99,7 @@ const player = new Fighter({
 // player 2
 const enemy = new Fighter({
   position: {
-    x: 800,
+    x: 1375,
     y: 100,
   },
   velocity: {
@@ -104,11 +108,11 @@ const enemy = new Fighter({
   },
   color: "blue",
   offset: {
-    x: -50,
+    x: 0,
     y: 0,
   },
   imageSrc: "./img/kenji/Idle.png",
-  scale: 2.5,
+  scale: 3,
   framesMax: 4,
   offset: {
     x: 215,
@@ -146,8 +150,8 @@ const enemy = new Fighter({
   },
   attackBox: {
     offset: {
-      x: -170,
-      y: 50,
+      x: -220,
+      y: 100,
     },
     width: 170,
     height: 50,
