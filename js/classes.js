@@ -85,9 +85,6 @@ class Fighter extends Sprite {
     };
     this.isAttacking;
     this.health = 100;
-    this.framesCurrent = 0;
-    this.framesElapsed = 0;
-    this.framesHold = 5;
     this.sprites = sprites;
     this.dead = false;
 
@@ -107,22 +104,21 @@ class Fighter extends Sprite {
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
     this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
 
-    // draw attack boxes
-    // c.fillRect(
-    //   this.attackBox.position.x,
-    //   this.attackBox.position.y,
-    //   this.attackBox.width,
-    //   this.attackBox.height
-    // );
-
     this.position.x += this.velocity.x;
+
+    // Update the vertical position based on the velocity
     this.position.y += this.velocity.y;
 
-    // gravity function
-    if (this.position.y + this.height + this.velocity.y >= canvas.height - 200) {
+    // Apply gravity
+    if (
+      this.position.y + this.height + this.velocity.y >=
+      canvas.height - 100
+    ) {
       this.velocity.y = 0;
-      this.position.y = 680;
-    } else this.velocity.y += gravity;
+      this.position.y = canvas.height - 100 - this.height;
+    } else {
+      this.velocity.y += gravity;
+    }
   }
 
   attack() {
@@ -140,6 +136,8 @@ class Fighter extends Sprite {
 
   // alternate sprite images
   switchSprite(sprite) {
+    console.log("Switching sprite to:", sprite);
+
     if (this.image === this.sprites.death.image) {
       if (this.framesCurrent === this.sprites.death.framesMax - 1)
         this.dead = true;

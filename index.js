@@ -38,7 +38,7 @@ const background = new Sprite({
 // player 1
 const player = new Fighter({
   position: {
-    x: 180,
+    x: 210,
     y: 0,
   },
   velocity: {
@@ -49,41 +49,37 @@ const player = new Fighter({
     x: 0,
     y: 0,
   },
-  imageSrc: "./img/whiteWitch/W_witch.png",
+  imageSrc: "./img/redWitch/Idle.png",
   scale: 3.5,
-  framesMax: 13,
-  offset: {
-    x: 0,
-    y: 0,
-  },
+  framesMax: 14,
   sprites: {
     idle: {
-      imageSrc: "./img/whiteWitch/Idle.png",
+      imageSrc: "./img/redWitch/Idle.png",
       framesMax: 6,
     },
     run: {
-      imageSrc: "./img/whiteWitch/Run.png",
-      framesMax: 6,
+      imageSrc: "./img/redWitch/Run.png",
+      framesMax: 8,
     },
     jump: {
-      imageSrc: "./img/whiteWitch/Charge.png",
-      framesMax: 8,
+      imageSrc: "./img/redWitch/Jump.png",
+      framesMax: 2,
     },
     fall: {
-      imageSrc: "./img/whiteWitch/Charge.png",
-      framesMax: 8,
+      imageSrc: "./img/redWitch/Fall.png",
+      framesMax: 2,
     },
     attack1: {
-      imageSrc: "./img/whiteWitch/Attack.png",
-      framesMax: 13,
+      imageSrc: "./img/redWitch/Attack.png",
+      framesMax: 8,
     },
     takeHit: {
-      imageSrc: "./img/whiteWitch/TakeHit.png",
+      imageSrc: "./img/redWitch/TakeHit.png",
       framesMax: 3,
     },
     death: {
-      imageSrc: "./img/whiteWitch/Death.png",
-      framesMax: 11,
+      imageSrc: "./img/redWitch/Death.png",
+      framesMax: 14,
     },
   },
   attackBox: {
@@ -108,15 +104,11 @@ const enemy = new Fighter({
   },
   offset: {
     x: 0,
-    y: 0,
+    y: -34,
   },
   imageSrc: "./img/blueWitch/Idle.png",
   scale: 3.5,
   framesMax: 12,
-  offset: {
-    x: 0,
-    y: -34,
-  },
   sprites: {
     idle: {
       imageSrc: "./img/blueWitch/Idle.png",
@@ -127,12 +119,12 @@ const enemy = new Fighter({
       framesMax: 8,
     },
     jump: {
-      imageSrc: "./img/blueWitch/Charge.png",
-      framesMax: 5,
+      imageSrc: "./img/blueWitch/Jump.png",
+      framesMax: 2,
     },
     fall: {
-      imageSrc: "./img/blueWitch/Charge.png",
-      framesMax: 5,
+      imageSrc: "./img/blueWitch/Fall.png",
+      framesMax: 2,
     },
     attack1: {
       imageSrc: "./img/blueWitch/Attack.png",
@@ -297,7 +289,8 @@ window.addEventListener("keydown", (event) => {
         break;
       case "w":
         player.velocity.y = -20;
-        break;d
+        player.switchSprite("jump"); // Switch to the "jump" sprite
+        break;
       case " ":
         player.attack();
         break;
@@ -316,6 +309,7 @@ window.addEventListener("keydown", (event) => {
         break;
       case "ArrowUp":
         enemy.velocity.y = -20;
+        enemy.switchSprite("jump"); // Switch to the "jump" sprite
         break;
       case "ArrowDown":
         enemy.attack();
