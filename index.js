@@ -7,8 +7,6 @@ function resizeCanvas() {
 }
 
 resizeCanvas();
-
-// canvas scale on window resize
 window.addEventListener("resize", resizeCanvas);
 
 c.fillRect(0, 0, canvas.width, canvas.height);
@@ -64,6 +62,25 @@ backgroundLayers.push(layer3);
 backgroundLayers.push(layer4);
 backgroundLayers.push(layer5);
 backgroundLayers.push(layer6);
+
+// const background = new Sprite({
+//   position: {
+//     x: 0,
+//     y: 0,
+//   },
+//   imageSrc: "./img/background.jpg",
+//   scale: 1.68,
+// });
+
+// const shop = new Sprite({
+//   position: {
+//     x: 640,
+//     y: 160,
+//   },
+//   imageSrc: "./img/shop.png",
+//   scale: 2.5,
+//   framesMax: 6,
+// });
 
 // player 1
 const player = new Fighter({
