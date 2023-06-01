@@ -22,7 +22,7 @@ const background = new Sprite({
     y: 0,
   },
   imageSrc: "./img/background.jpg",
-  scale: 1.69,
+  scale: 1.68,
 });
 
 // const shop = new Sprite({
@@ -38,7 +38,7 @@ const background = new Sprite({
 // player 1
 const player = new Fighter({
   position: {
-    x: 350,
+    x: 180,
     y: 0,
   },
   velocity: {
@@ -49,112 +49,111 @@ const player = new Fighter({
     x: 0,
     y: 0,
   },
-  imageSrc: "./img/samuraiMack/Idle.png",
-  scale: 3,
-  framesMax: 8,
+  imageSrc: "./img/whiteWitch/W_witch.png",
+  scale: 3.5,
+  framesMax: 13,
   offset: {
-    x: 215,
-    y: 151,
+    x: 0,
+    y: 0,
   },
   sprites: {
     idle: {
-      imageSrc: "./img/samuraiMack/Idle.png",
-      framesMax: 8,
+      imageSrc: "./img/whiteWitch/Idle.png",
+      framesMax: 6,
     },
     run: {
-      imageSrc: "./img/samuraiMack/Run.png",
-      framesMax: 8,
+      imageSrc: "./img/whiteWitch/Run.png",
+      framesMax: 6,
     },
     jump: {
-      imageSrc: "./img/samuraiMack/Jump.png",
-      framesMax: 2,
+      imageSrc: "./img/whiteWitch/Charge.png",
+      framesMax: 8,
     },
     fall: {
-      imageSrc: "./img/samuraiMack/Fall.png",
-      framesMax: 2,
+      imageSrc: "./img/whiteWitch/Charge.png",
+      framesMax: 8,
     },
     attack1: {
-      imageSrc: "./img/samuraiMack/Attack1.png",
-      framesMax: 6,
+      imageSrc: "./img/whiteWitch/Attack.png",
+      framesMax: 13,
     },
     takeHit: {
-      imageSrc: "./img/samuraiMack/TakeHitWhite.png",
-      framesMax: 4,
+      imageSrc: "./img/whiteWitch/TakeHit.png",
+      framesMax: 3,
     },
     death: {
-      imageSrc: "./img/samuraiMack/Death.png",
-      framesMax: 6,
+      imageSrc: "./img/whiteWitch/Death.png",
+      framesMax: 11,
     },
   },
   attackBox: {
     offset: {
-      x: 135,
-      y: 100,
+      x: 115,
+      y: 110,
     },
-    width: 170,
-    height: 50,
+    width: 150,
+    height: 25,
   },
 });
 
 // player 2
 const enemy = new Fighter({
   position: {
-    x: 1375,
-    y: 100,
+    x: 1200,
+    y: 0,
   },
   velocity: {
     x: 0,
     y: 0,
   },
-  color: "blue",
   offset: {
     x: 0,
     y: 0,
   },
-  imageSrc: "./img/kenji/Idle.png",
-  scale: 3,
-  framesMax: 4,
+  imageSrc: "./img/blueWitch/Idle.png",
+  scale: 3.5,
+  framesMax: 12,
   offset: {
-    x: 215,
-    y: 169,
+    x: 0,
+    y: -34,
   },
   sprites: {
     idle: {
-      imageSrc: "./img/kenji/Idle.png",
-      framesMax: 4,
+      imageSrc: "./img/blueWitch/Idle.png",
+      framesMax: 6,
     },
     run: {
-      imageSrc: "./img/kenji/Run.png",
+      imageSrc: "./img/blueWitch/Run.png",
       framesMax: 8,
     },
     jump: {
-      imageSrc: "./img/kenji/Jump.png",
-      framesMax: 2,
+      imageSrc: "./img/blueWitch/Charge.png",
+      framesMax: 5,
     },
     fall: {
-      imageSrc: "./img/kenji/Fall.png",
-      framesMax: 2,
+      imageSrc: "./img/blueWitch/Charge.png",
+      framesMax: 5,
     },
     attack1: {
-      imageSrc: "./img/kenji/Attack1.png",
-      framesMax: 4,
+      imageSrc: "./img/blueWitch/Attack.png",
+      framesMax: 9,
     },
     takeHit: {
-      imageSrc: "./img/kenji/TakeHit.png",
+      imageSrc: "./img/blueWitch/TakeHit.png",
       framesMax: 3,
     },
     death: {
-      imageSrc: "./img/kenji/Death.png",
-      framesMax: 7,
+      imageSrc: "./img/blueWitch/Death.png",
+      framesMax: 12,
     },
   },
   attackBox: {
     offset: {
-      x: -220,
-      y: 100,
+      x: -160,
+      y: 110,
     },
-    width: 170,
-    height: 50,
+    width: 250,
+    height: 25,
   },
 });
 
@@ -178,13 +177,12 @@ decreaseTimer();
 // player/enemy movement
 function animate() {
   window.requestAnimationFrame(animate);
-  c.fillStyle = "black";
-  c.fillRect(0, 0, canvas.width, canvas.height);
+  // c.fillStyle = "black";
+  // c.fillRect(0, 0, canvas.width, canvas.height);
   background.update();
-  //   shop.update();
 
   // white background overlay
-  c.fillStyle = "rgba(255, 255, 255, 0.15)";
+  c.fillStyle = "rgba(255, 255, 255, 0.1)";
   c.fillRect(0, 0, canvas.width, canvas.height);
 
   player.update();
@@ -299,7 +297,7 @@ window.addEventListener("keydown", (event) => {
         break;
       case "w":
         player.velocity.y = -20;
-        break;
+        break;d
       case " ":
         player.attack();
         break;

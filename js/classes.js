@@ -55,7 +55,6 @@ class Fighter extends Sprite {
   constructor({
     position,
     velocity,
-    color = "red",
     imageSrc,
     scale = 1,
     framesMax = 1,
@@ -84,7 +83,6 @@ class Fighter extends Sprite {
       width: attackBox.width,
       height: attackBox.height,
     };
-    this.color = color;
     this.isAttacking;
     this.health = 100;
     this.framesCurrent = 0;
@@ -121,9 +119,9 @@ class Fighter extends Sprite {
     this.position.y += this.velocity.y;
 
     // gravity function
-    if (this.position.y + this.height + this.velocity.y >= canvas.height - 160) {
+    if (this.position.y + this.height + this.velocity.y >= canvas.height - 200) {
       this.velocity.y = 0;
-      this.position.y = 640;
+      this.position.y = 680;
     } else this.velocity.y += gravity;
   }
 
