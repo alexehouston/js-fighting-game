@@ -1,11 +1,15 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
-// canvas.width = 1024;
-// canvas.height = 576;
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+resizeCanvas();
+
+// canvas scale on window resize
+window.addEventListener("resize", resizeCanvas);
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -16,24 +20,50 @@ c.imageSmoothingEnabled = false;
 
 const gravity = 0.7;
 
-const background = new Sprite({
-  position: {
-    x: 0,
-    y: 0,
-  },
-  imageSrc: "./img/background.jpg",
-  scale: 1.68,
+const backgroundLayers = [];
+
+const layer1 = new Sprite({
+  position: { x: 0, y: 0 },
+  imageSrc: "./img/bg/1.png",
+  scale: 1.0,
 });
 
-// const shop = new Sprite({
-//   position: {
-//     x: 640,
-//     y: 160,
-//   },
-//   imageSrc: "./img/shop.png",
-//   scale: 2.5,
-//   framesMax: 6,
-// });
+const layer2 = new Sprite({
+  position: { x: 0, y: 0 },
+  imageSrc: "./img/bg/2.png",
+  scale: 1.0,
+});
+
+const layer3 = new Sprite({
+  position: { x: 0, y: 0 },
+  imageSrc: "./img/bg/3.png",
+  scale: 1.0,
+});
+
+const layer4 = new Sprite({
+  position: { x: 0, y: 0 },
+  imageSrc: "./img/bg/4.png",
+  scale: 1.0,
+});
+
+const layer5 = new Sprite({
+  position: { x: 0, y: 0 },
+  imageSrc: "./img/bg/5.png",
+  scale: 1.0,
+});
+
+const layer6 = new Sprite({
+  position: { x: 0, y: 0 },
+  imageSrc: "./img/bg/6.png",
+  scale: 1.0,
+});
+
+backgroundLayers.push(layer1);
+backgroundLayers.push(layer2);
+backgroundLayers.push(layer3);
+backgroundLayers.push(layer4);
+backgroundLayers.push(layer5);
+backgroundLayers.push(layer6);
 
 // player 1
 const player = new Fighter({
@@ -164,14 +194,53 @@ const keys = {
   },
 };
 
+function renderBackground() {
+  // Clear the canvas
+  c.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the background layers
+  backgroundLayers.forEach((layer) => {
+    const scale = layer.scale;
+    let posX = layer.position.x;
+    const posY = layer.position.y;
+
+    // Adjust the position to create the illusion of endless looping
+    while (posX < canvas.width) {
+      c.drawImage(layer.image, posX, posY, canvas.width * scale, canvas.height * scale);
+      posX += canvas.width * scale;
+    }
+  });
+}
+
+
 decreaseTimer();
 
 // player/enemy movement
 function animate() {
   window.requestAnimationFrame(animate);
-  // c.fillStyle = "black";
-  // c.fillRect(0, 0, canvas.width, canvas.height);
-  background.update();
+  c.clearRect(0, 0, canvas.width, canvas.height);
+
+  // background.update();
+
+  backgroundLayers.forEach((layer, index) => {
+    if (index === 1 || index === 5) {
+      // Don't move layer 2 and layer 6
+      layer.position.x = 0;
+    } else {
+      // layer movement speed
+      layer.position.x -= (index + 1) * 0.15;
+  
+      // Check if the layer has scrolled off the screen completely
+      if (layer.position.x <= -canvas.width * layer.scale) {
+        // Move the layer next to the previous iteration
+        const previousLayer = backgroundLayers[index - 1];
+        layer.position.x = previousLayer.position.x + canvas.width * previousLayer.scale;
+      }
+    }
+  });
+
+  // Render the background
+  renderBackground();
 
   // white background overlay
   c.fillStyle = "rgba(255, 255, 255, 0.1)";

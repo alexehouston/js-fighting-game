@@ -95,6 +95,19 @@ class Fighter extends Sprite {
     }
   }
 
+  resize() {
+    const characterWidth = canvas.width * 0.1; // Adjust the width percentage as needed
+    const characterHeight = canvas.height * 0.2; // Adjust the height percentage as needed
+  
+    // Update the character's width and height
+    this.width = characterWidth;
+    this.height = characterHeight;
+  
+    // Re-render the character with the updated size
+    this.draw();
+  }
+  
+
   update() {
     this.draw();
 
@@ -136,8 +149,6 @@ class Fighter extends Sprite {
 
   // alternate sprite images
   switchSprite(sprite) {
-    console.log("Switching sprite to:", sprite);
-
     if (this.image === this.sprites.death.image) {
       if (this.framesCurrent === this.sprites.death.framesMax - 1)
         this.dead = true;
