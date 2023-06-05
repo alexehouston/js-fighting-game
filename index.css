@@ -103,6 +103,11 @@ a {
     text-align: center;
 }
 
+.gameOver {
+    background-color: white;
+    color: black;
+}
+
 #displayText {
     display: none;
     align-items: center;

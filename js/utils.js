@@ -15,10 +15,12 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 function determineWinner({ player, enemy, timerId }) {
   clearTimeout(timerId);
   const displayTextElement = document.querySelector("#displayText");
+  const displayTextBoxElement = document.querySelector("#displayTextBox");
   const refreshLinkElement = document.querySelector("#refreshLink");
 
   displayTextElement.style.display = "flex";
-  refreshLinkElement.innerHTML = "<a href='#'>Rematch</a>";
+  displayTextBoxElement.style.display = "flex";
+  refreshLinkElement.innerHTML = "Rematch";
 
   if (player.health === enemy.health) {
     displayTextElement.innerHTML = "Tie";

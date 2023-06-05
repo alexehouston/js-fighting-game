@@ -214,6 +214,7 @@ function animate() {
   player.update();
   enemy.update();
 
+  // players start without movement
   player.velocity.x = 0;
   enemy.velocity.x = 0;
 
